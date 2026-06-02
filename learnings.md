@@ -1,0 +1,6 @@
+# mkdir - to make a directory, cd to get to current directory, git init - initialise repo, .gitignore- file that includes all files not to be committed to the repo(privacy reasons)
+# set up react project - npm create vite@latest frontend -- --template react -> creates new react project using latest version of vite project directory being frontend(name of directory)
+# -D flag is used for dev dependencies - dependencies that are used only during build and testing and are not need when application is running in production phase
+# tailwind css is a utility-first CSS framework helps in 1. faster development 2. consistent design 3. smaller production css bundles
+# postcss is a css processing tool --> css - postcss - processed css. tailwind is implemented as a postcss plugin. autoprefixer is another postcss plugin that adds browser-specific prefixes. - better browser compatibility, no manual prefix management
+# favicon.io is a website that generates favicons for web applications. A favicon is the small icon displayed in browser tabs, bookmarks, and browser history.
