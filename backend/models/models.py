@@ -45,3 +45,17 @@ class Budget(Base):
     month    = Column(String, nullable=False)  # format: "2026-06"
 
     owner = relationship("User", back_populates="budgets")
+
+class ImportHistory(Base):
+    __tablename__ = "import_history"
+
+    id             = Column(Integer, primary_key=True, index=True)
+    user_id        = Column(Integer, ForeignKey("users.id"), nullable=False)
+    filename       = Column(String, nullable=False)
+    file_type      = Column(String, nullable=False)  # csv or pdf
+    total_rows     = Column(Integer, default=0)
+    imported_rows  = Column(Integer, default=0)
+    duplicate_rows = Column(Integer, default=0)
+    created_at     = Column(DateTime(timezone=True), server_default=func.now())
+
+    owner = relationship("User", backref="imports")

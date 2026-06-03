@@ -60,3 +60,15 @@ class TransactionOut(BaseModel):
 
     class Config:
         from_attributes = True
+
+class ImportHistoryOut(BaseModel):
+    id:             int
+    filename:       str
+    file_type:      str
+    total_rows:     int
+    imported_rows:  int
+    duplicate_rows: int
+    created_at:     datetime
+
+    class Config:
+        from_attributes = True
