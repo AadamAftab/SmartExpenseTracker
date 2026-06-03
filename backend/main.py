@@ -1,19 +1,22 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from database import Base, engine
+from routers import auth, transactions
 
-app=FastAPI(title="Finance Copilot AI", version="1.0.0")
+Base.metadata.create_all(bind=engine)
+
+app = FastAPI(title="Finance Copilot API", version="1.0.0")
 
 app.add_middleware(
-    CORSMiddleware, 
-    allow_origins=["https://localhost:5173"],
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-@app.get("/")
-def root():
-    return {"message": "Finance Copilot API is running"}
+app.include_router(auth.router)
+app.include_router(transactions.router)
 
 @app.get("/health")
 def health():
