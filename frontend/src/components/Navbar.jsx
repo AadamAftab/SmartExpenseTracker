@@ -20,6 +20,7 @@ export default function Navbar() {
         <div className="flex items-center gap-4 text-sm">
           <Link to="/"       className="text-slate-400 hover:text-white transition-colors">Dashboard</Link>
           <Link to="/import" className="text-slate-400 hover:text-white transition-colors">Import</Link>
+          <Link to="/categorize" className="text-slate-400 hover:text-white transition-colors">Categorize</Link>
         </div>
       </div>
       <div className="flex items-center gap-4">

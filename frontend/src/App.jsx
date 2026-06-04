@@ -4,6 +4,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
 import Import from './pages/Import'
+import Categorize from './pages/Categorize'
 
 function PrivateRoute({ children }) {
   const { user, loading } = useAuth()
@@ -20,6 +21,7 @@ export default function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/"         element={<PrivateRoute><Dashboard /></PrivateRoute>} />
           <Route path="/import" element={<PrivateRoute><Import /></PrivateRoute>} />
+          <Route path="/categorize" element={<PrivateRoute><Categorize /></PrivateRoute>} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

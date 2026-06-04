@@ -9,27 +9,9 @@ from datetime import datetime
 import pandas as pd
 import pdfplumber
 import io
-import re
+from utils.categorizer import categorize as smart_categorize
 
 router = APIRouter(prefix="/imports", tags=["Imports"])
-
-CATEGORY_RULES = {
-    "zomato": "Food", "swiggy": "Food", "dominos": "Food", "mcdonald": "Food",
-    "uber": "Travel", "ola": "Travel", "rapido": "Travel", "irctc": "Travel",
-    "amazon": "Shopping", "flipkart": "Shopping", "myntra": "Shopping", "meesho": "Shopping",
-    "netflix": "Entertainment", "spotify": "Entertainment", "youtube": "Entertainment", "hotstar": "Entertainment",
-    "electricity": "Bills", "airtel": "Bills", "jio": "Bills", "bsnl": "Bills", "water": "Bills",
-    "salary": "Income", "credited": "Income", "neft": "Income", "imps": "Income",
-}
-
-def guess_category(merchant: str) -> str:
-    if not merchant:
-        return "Other"
-    m = merchant.lower()
-    for keyword, category in CATEGORY_RULES.items():
-        if keyword in m:
-            return category
-    return "Other"
 
 def is_duplicate(db: Session, user_id: int, amount: float, date: datetime, merchant: str) -> bool:
     existing = db.query(Transaction).filter(
@@ -138,7 +120,7 @@ async def upload_statement(
         amount   = abs(float(row["amount"]))
         date     = row["date"].to_pydatetime()
         txn_type = "expense" if float(row["amount"]) < 0 else "income"
-        category = guess_category(merchant)
+        category = smart_categorize(merchant)
 
         if is_duplicate(db, current_user.id, amount, date, merchant):
             duplicates += 1
