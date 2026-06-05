@@ -1,6 +1,26 @@
 Date,Amount,Merchant
-2026-05-01,-250,Zomato
-2026-05-02,-150,Uber
-2026-05-03,50000,Salary Credited
-2026-05-04,-1200,Amazon
-2026-05-05,-499,Netflix
+2026-03-01,-250,Zomato
+2026-03-05,-150,Uber
+2026-03-10,-1200,Amazon
+2026-03-15,-499,Netflix
+2026-03-20,-300,Swiggy
+2026-03-25,-800,Flipkart
+2026-04-01,-280,Zomato
+2026-04-05,-200,Ola
+2026-04-10,-999,Amazon
+2026-04-15,-499,Netflix
+2026-04-20,-450,Swiggy
+2026-04-25,-600,Myntra
+2026-04-30,50000,Salary Credited
+2026-05-01,-300,Zomato
+2026-05-03,-180,Rapido
+2026-05-08,-1500,Flipkart
+2026-05-10,-499,Spotify
+2026-05-12,-250,Swiggy
+2026-05-15,-800,Amazon
+2026-05-18,-300,Zomato
+2026-05-20,-150,Uber
+2026-05-22,-2000,Apollo Pharmacy
+2026-05-25,-499,Netflix
+2026-05-28,-600,Myntra
+2026-05-30,50000,Salary Credited

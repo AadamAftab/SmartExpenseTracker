@@ -21,6 +21,7 @@ export default function Navbar() {
           <Link to="/"       className="text-slate-400 hover:text-white transition-colors">Dashboard</Link>
           <Link to="/import" className="text-slate-400 hover:text-white transition-colors">Import</Link>
           <Link to="/categorize" className="text-slate-400 hover:text-white transition-colors">Categorize</Link>
+          <Link to="/analytics" className="text-slate-400 hover:text-white transition-colors">Analytics</Link>
         </div>
       </div>
       <div className="flex items-center gap-4">
