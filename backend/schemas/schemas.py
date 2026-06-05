@@ -72,3 +72,32 @@ class ImportHistoryOut(BaseModel):
 
     class Config:
         from_attributes = True
+
+class BudgetCreate(BaseModel):
+    category: str
+    limit:    float
+    month:    str  # format: "2026-06"
+
+class BudgetUpdate(BaseModel):
+    limit: float
+
+class BudgetOut(BaseModel):
+    id:       int
+    category: str
+    limit:    float
+    month:    str
+
+    class Config:
+        from_attributes = True
+
+class BudgetUsage(BaseModel):
+    id:         int
+    category:   str
+    limit:      float
+    spent:      float
+    remaining:  float
+    percentage: float
+    status:     str  # ok | warning | danger
+
+    class Config:
+        from_attributes = True
